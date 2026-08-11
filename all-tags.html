@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tag Example Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+        header, footer {
+            background: #0f172a;
+            color: #fff;
+            padding: 24px;
+            text-align: center;
+        }
+        nav a {
+            color: #94a3b8;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            color: #fff;
+        }
+        main {
+            max-width: 1000px;
+            margin: 24px auto;
+            padding: 0 18px 24px;
+        }
+        section {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+        }
+        h1, h2, h3 {
+            margin-top: 0;
+        }
+        .grid {
+            display: grid;
+            gap: 18px;
+        }
+        @media (min-width: 720px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+        table th, table td {
+            border: 1px solid #cbd5e1;
+            padding: 10px;
+            text-align: left;
+        }
+        figure {
+            margin: 0;
+        }
+        figure img {
+            max-width: 100%;
+            border-radius: 12px;
+        }
+        label {
+            display: block;
+            margin: 12px 0 6px;
+            font-weight: 600;
+        }
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            font: inherit;
+        }
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            margin-top: 14px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #1d4ed8;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HTML Tag Example Page</h1>
+        <nav>
+            <a href="#text">Text</a>
+            <a href="#media">Media</a>
+            <a href="#lists">Lists</a>
+            <a href="#form">Form</a>
+            <a href="#extra">Extra Tags</a>
+        </nav>
+    </header>
+    <main>
+        <section id="text">
+            <h2>Text and Semantic Tags</h2>
+            <p>HTML lets you write structured content with headings, <strong>strong</strong>, <em>emphasis</em>, <mark>highlight</mark>, and more.</p>
+            <p>Some examples include <code>&lt;abbr&gt;</code> for abbreviations: <abbr title="HyperText Markup Language">HTML</abbr>, and <code>&lt;time&gt;</code> for dates: <time datetime="2026-08-05">August 5, 2026</time>.</p>
+            <blockquote cite="https://www.w3.org/">
+                <p>"The web is a collaborative platform built using HTML, CSS, and JavaScript."</p>
+            </blockquote>
+            <pre><code>&lt;html lang="en"&gt; ... &lt;/html&gt;</code></pre>
+            <p>Use <code>&lt;small&gt;</code> for small text, <code>&lt;del&gt;</code> for deleted text, and <code>&lt;ins&gt;</code> for inserted text.</p>
+        </section>
+
+        <section id="media">
+            <h2>Media and Visual Elements</h2>
+            <div class="grid grid-2">
+                <figure>
+                    <img src="rose.jpg" alt="Red rose">
+                    <figcaption>A descriptive image using <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code>.</figcaption>
+                </figure>
+                <div>
+                    <h3>Audio and Video</h3>
+                    <audio controls>
+                        <source src="songs.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <video controls width="100%" style="margin-top: 18px; border-radius: 12px;">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <p>Embedded content can use <code>&lt;iframe&gt;</code>:</p>
+            <iframe width="100%" height="200" srcdoc="&lt;body style='font-family:Arial,sans-serif;margin:16px;'&gt;&lt;h3&gt;Iframe content&lt;/h3&gt;&lt;p&gt;This is an embedded page.&lt;/p&gt;&lt;/body&gt;" title="Iframe Example"></iframe>
+        </section>
+
+        <section id="lists">
+            <h2>Lists and Tables</h2>
+            <div class="grid grid-2">
+                <div>
+                    <h3>Unordered list</h3>
+                    <ul>
+                        <li>HTML tags</li>
+                        <li>Structure</li>
+                        <li>Accessibility</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Ordered list</h3>
+                    <ol>
+                        <li>Open the editor</li>
+                        <li>Write content</li>
+                        <li>Preview in browser</li>
+                    </ol>
+                </div>
+            </div>
+            <h3>Description list</h3>
+            <dl>
+                <dt>HTML</dt>
+                <dd>Structure for webpages.</dd>
+                <dt>CSS</dt>
+                <dd>Presentation layer.</dd>
+                <dt>JS</dt>
+                <dd>Interactive behavior.</dd>
+            </dl>
+            <table>
+                <caption>Example data table</caption>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Tag</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Paragraph</td>
+                        <td><code>&lt;p&gt;</code></td>
+                        <td>Text block</td>
+                    </tr>
+                    <tr>
+                        <td>Link</td>
+                        <td><code>&lt;a&gt;</code></td>
+                        <td><a href="#text">Jump to text</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="form">
+            <h2>Forms and Input Types</h2>
+            <form>
+                <fieldset>
+                    <legend>Contact details</legend>
+                    <label for="full-name">Full name</label>
+                    <input type="text" id="full-name" name="full-name" placeholder="Your name">
+
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" placeholder="email@example.com">
+
+                    <label for="birthday">Birthday</label>
+                    <input type="date" id="birthday" name="birthday">
+
+                    <label for="city">City</label>
+                    <input list="cities" id="city" name="city" placeholder="Choose a city">
+                    <datalist id="cities">
+                        <option value="New York">
+                        <option value="London">
+                        <option value="Tokyo">
+                    </datalist>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Write a brief message..."></textarea>
+
+                    <label>Newsletter</label>
+                    <label><input type="radio" name="newsletter" value="yes"> Yes</label>
+                    <label><input type="radio" name="newsletter" value="no"> No</label>
+
+                    <label>Interests</label>
+                    <label><input type="checkbox" name="interest" value="html"> HTML</label>
+                    <label><input type="checkbox" name="interest" value="css"> CSS</label>
+                    <label><input type="checkbox" name="interest" value="js"> JavaScript</label>
+                </fieldset>
+                <button type="submit">Send message</button>
+            </form>
+        </section>
+
+        <section id="extra">
+            <h2>Extra HTML Tags</h2>
+            <div class="grid grid-2">
+                <div>
+                    <details>
+                        <summary>Read more about HTML</summary>
+                        <p>Details and summary elements provide collapsible content sections.</p>
+                    </details>
+                    <p><strong>Progress</strong> can use <code>&lt;progress&gt;</code>:</p>
+                    <progress value="60" max="100">60%</progress>
+                    <p><strong>Measurement</strong> can use <code>&lt;meter&gt;</code>:</p>
+                    <meter value="0.5">50%</meter>
+                </div>
+                <div>
+                    <p>Here is inline code: <code>&lt;span&gt;</code> and keyboard text: <kbd>Ctrl + S</kbd>.</p>
+                    <p>Use <code>&lt;sup&gt;</code> and <code>&lt;sub&gt;</code> for scientific notation: CO<sub>2</sub>, 10<sup>6</sup>.</p>
+                    <p>The <code>&lt;small&gt;</code> tag is good for side notes or fine print.</p>
+                </div>
+            </div>
+            <template id="note-template">
+                <p>This note was created with &lt;template&gt; and inserted with JavaScript.</p>
+            </template>
+            <div id="template-output" style="margin-top:18px;"></div>
+            <canvas id="demo-canvas" width="600" height="150">Canvas is not supported in this browser.</canvas>
+        </section>
+    </main>
+
+    <footer>
+        <p>Copyright &copy; 2026 HTML Tag Example.</p>
+    </footer>
+
+    <script>
+        const template = document.getElementById('note-template');
+        const output = document.getElementById('template-output');
+        if (template && output) {
+            output.appendChild(template.content.cloneNode(true));
+        }
+
+        const canvas = document.getElementById('demo-canvas');
+        if (canvas && canvas.getContext) {
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#e0f2fe';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#1e40af';
+            ctx.font = '18px Arial';
+            ctx.fillText('Canvas drawing example', 20, 40);
+            ctx.fillStyle = '#3b82f6';
+            ctx.fillRect(20, 60, 180, 24);
+            ctx.fillRect(20, 100, 240, 24);
+        }
+    </script>
+</body>
+</html>
