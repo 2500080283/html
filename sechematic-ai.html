@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Portfolio</title>
+    <style>
+        :root {
+            --bg-start: #0e1d34;
+            --bg-end: #162a49;
+            --card: rgba(255, 255, 255, 0.95);
+            --accent: #f8b400;
+            --accent-soft: #ffda7a;
+            --text: #1f2937;
+            --muted: #555d6a;
+            --border: rgba(24, 39, 77, 0.16);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background: radial-gradient(circle at top, rgba(248, 180, 0, 0.18), transparent 35%),
+                        linear-gradient(180deg, var(--bg-start), var(--bg-end));
+            min-height: 100vh;
+            padding: 24px;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            gap: 24px;
+        }
+
+        header,
+        footer {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            backdrop-filter: blur(18px);
+            padding: 28px 32px;
+            box-shadow: 0 28px 60px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            font-size: clamp(2rem, 2.5vw, 3rem);
+            color: #fff;
+            letter-spacing: 0.02em;
+            margin-bottom: 12px;
+        }
+
+        header p {
+            color: #d8e1f2;
+            max-width: 760px;
+            line-height: 1.8;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 24px;
+        }
+
+        .panel {
+            background: var(--card);
+            border-radius: 24px;
+            padding: 26px;
+            border: 1px solid var(--border);
+        }
+
+        .panel h2 {
+            margin-bottom: 16px;
+            color: #132035;
+        }
+
+        .nav-links,
+        .skills-list {
+            list-style: none;
+            display: grid;
+            gap: 14px;
+        }
+
+        .nav-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            background: #0f2243;
+            color: #f7f6ff;
+            border-radius: 16px;
+            text-decoration: none;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            transform: translateX(6px);
+            background: #162c5e;
+        }
+
+        .skills-list li {
+            padding: 12px 16px;
+            background: #f8f6ee;
+            border-radius: 14px;
+            color: #30343a;
+            font-weight: 600;
+            box-shadow: inset 0 0 0 1px rgba(16, 24, 40, 0.08);
+        }
+
+        .content article {
+            margin-bottom: 22px;
+        }
+
+        .content article:last-child {
+            margin-bottom: 0;
+        }
+
+        .content p,
+        .content details p,
+        .footer-text {
+            color: var(--muted);
+            line-height: 1.85;
+        }
+
+        details {
+            border: 1px solid rgba(33, 37, 41, 0.08);
+            border-radius: 18px;
+            padding: 18px 20px;
+            background: #fff;
+            margin: 8px 0 16px;
+        }
+
+        summary {
+            font-weight: 700;
+            cursor: pointer;
+            color: #1d2939;
+            margin-bottom: 10px;
+            outline: none;
+        }
+
+        .meta {
+            margin-top: 18px;
+            display: inline-block;
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        footer p {
+            color: #e2e8f0;
+            line-height: 1.85;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 880px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header>
+            <h1>Welcome to My Web Portfolio</h1>
+            <p>Beautifully organized content for your links, skills, and project highlights. This page is designed to be clean, modern, and easy to scan.</p>
+        </header>
+
+        <div class="layout">
+            <aside class="panel">
+                <h2>Quick Links</h2>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="all-tags.html">All Tags</a></li>
+                    <li><a href="tabletags.html">Table Tags</a></li>
+                    <li><a href="hyperlink.html">Hyperlink</a></li>
+                    <li><a href="https://www.google.com">Google</a></li>
+                    <li><a href="https://www.github.com">GitHub</a></li>
+                    <li><a href="https://klu-luxe-life.base44.app/login?from_url=https%3A%2F%2Fklu-luxe-life.base44.app%2F">KLU Luxury</a></li>
+                    <li><a href="https://www.youtube.com">YouTube</a></li>
+                </ul>
+            </aside>
+
+            <aside class="panel">
+                <h2>Skills</h2>
+                <ul class="skills-list">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>Python</li>
+                    <li>Java</li>
+                </ul>
+            </aside>
+        </div>
+
+        <main class="panel content">
+            <article>
+                <h2>Projects</h2>
+                <p>Explore a selection of projects, including an image gallery, a portfolio website, and a simple to-do list application. Each piece reflects careful design and practical web development skills.</p>
+            </article>
+
+            <details>
+                <summary>More about my work</summary>
+                <p>I also contribute to open-source projects, collaborate with other developers, and build responsive solutions that focus on clarity, performance, and user experience.</p>
+            </details>
+
+            <article>
+                <h2>About Me</h2>
+                <p>I am a passionate web developer experienced with HTML, CSS, and JavaScript. I enjoy crafting polished interfaces that feel modern and comfortable for users.</p>
+            </article>
+
+            <div class="meta">Last updated: August 15, 2026</div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 My Website. All rights reserved.</p>
+            <p class="footer-text">For more information, call <a href="tel:+919390858140">+91 93908 58140</a> or email <a href="mailto:chebrolur521@gmail.com">chebrolur521@gmail.com</a>.</p>
+            <p class="footer-text"><a href="https://www.linkedin.com/in/chebrolu-ravi-raj-2b0a1b1b3/">LinkedIn</a> · <a href="https://www.github.com/chebrolur521/">GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>
