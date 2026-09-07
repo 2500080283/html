@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A little question</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #351d2b;
+            --wine: #8c3046;
+            --rose: #ef9e9f;
+            --paper: rgba(255, 252, 247, 0.92);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: var(--ink);
+            font-family: 'DM Sans', sans-serif;
+            background:
+                radial-gradient(circle at 7% 15%, rgba(239, 158, 159, 0.46), transparent 27%),
+                radial-gradient(circle at 94% 83%, rgba(205, 128, 111, 0.28), transparent 25%),
+                linear-gradient(135deg, #f9d9ce 0%, #f8eee1 48%, #e7c4bd 100%);
+            overflow-x: hidden;
+        }
+
+        .grain {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: .13;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+            mix-blend-mode: multiply;
+        }
+
+        .page {
+            width: min(1160px, calc(100% - 48px));
+            min-height: 100vh;
+            margin: auto;
+            display: grid;
+            place-items: center;
+            padding: 48px 0;
+        }
+
+        .intro {
+            width: min(520px, 100%);
+            padding: 52px clamp(28px, 7vw, 72px);
+            text-align: center;
+            background: var(--paper);
+            box-shadow: 0 28px 90px rgba(83, 39, 47, .22);
+            animation: arrive .8s ease both;
+        }
+
+        .intro-mark {
+            display: grid;
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 24px;
+            place-items: center;
+            color: #fff8f0;
+            background: var(--wine);
+            border-radius: 50%;
+            font-size: 1.35rem;
+        }
+
+        .intro h1 {
+            margin-bottom: 16px;
+            font-size: clamp(2.8rem, 8vw, 4.5rem);
+        }
+
+        .intro p {
+            margin: 0 auto 28px;
+            color: #694855;
+            line-height: 1.7;
+        }
+
+        .name-form { display: grid; gap: 12px; }
+
+        .name-form label {
+            color: #9a6670;
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-align: left;
+            text-transform: uppercase;
+        }
+
+        .name-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #e3b6af;
+            border-radius: 2px;
+            color: var(--ink);
+            background: #fffaf5;
+            font: inherit;
+            outline: none;
+        }
+
+        .name-form input:focus { border-color: var(--wine); box-shadow: 0 0 0 3px rgba(140, 48, 70, .12); }
+
+        .open-button,
+        .later-button,
+        .share-button {
+            padding: 13px 18px;
+            border: 1px solid transparent;
+            border-radius: 2px;
+            font-weight: 700;
+        }
+
+        .open-button { color: #fffaf5; background: var(--wine); }
+        .later-button { color: var(--wine); background: transparent; border-color: #d79e9c; }
+        .open-button:hover, .yes-button:hover { background: #702238; }
+
+        .proposal[hidden], .intro[hidden] { display: none; }
+
+        .proposal { animation: arrive .8s ease both; }
+
+        .proposal {
+            width: 100%;
+            display: grid;
+            grid-template-columns: minmax(280px, .85fr) minmax(320px, 1.15fr);
+            min-height: 650px;
+            overflow: hidden;
+            background: var(--paper);
+            box-shadow: 0 28px 90px rgba(83, 39, 47, .22);
+        }
+
+        .photo {
+            position: relative;
+            min-height: 520px;
+            background: #d98e83 url('rose.jpg') center / cover;
+        }
+
+        .photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 45%, rgba(47, 17, 28, .72));
+        }
+
+        .photo-caption {
+            position: absolute;
+            z-index: 1;
+            bottom: 32px;
+            left: 32px;
+            right: 28px;
+            color: #fff8f0;
+        }
+
+        .photo-caption span,
+        .eyebrow {
+            display: block;
+            margin-bottom: 12px;
+            color: #ffe0cd;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+
+        .photo-caption p {
+            max-width: 270px;
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            line-height: 1.15;
+        }
+
+        .letter {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: clamp(42px, 7vw, 88px);
+        }
+
+        .letter::before {
+            content: '♥';
+            position: absolute;
+            top: 34px;
+            right: 44px;
+            color: var(--rose);
+            font-size: 1.5rem;
+            transform: rotate(12deg);
+        }
+
+        h1 {
+            max-width: 540px;
+            margin: 0 0 22px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 500;
+            letter-spacing: -.04em;
+            line-height: .98;
+        }
+
+        h1 em { color: var(--wine); }
+
+        .letter > p {
+            max-width: 490px;
+            margin: 0;
+            color: #694855;
+            font-size: 1.03rem;
+            line-height: 1.8;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-top: 36px;
+        }
+
+        button {
+            border: 0;
+            cursor: pointer;
+            font: inherit;
+        }
+
+        .yes-button {
+            padding: 16px 25px;
+            color: #fffaf5;
+            background: var(--wine);
+            border-radius: 2px;
+            box-shadow: 0 10px 22px rgba(140, 48, 70, .2);
+            font-weight: 700;
+            transition: transform .2s ease, background .2s ease;
+        }
+
+        .yes-button:hover { background: #702238; transform: translateY(-3px); }
+
+        .hint { color: #9a6670; font-size: .8rem; }
+
+        .answer {
+            display: none;
+            margin-top: 30px;
+            padding: 18px 20px;
+            border-left: 3px solid var(--rose);
+            background: rgba(255, 232, 219, .7);
+            color: var(--wine);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-style: italic;
+        }
+
+        .answer.show { display: block; animation: reveal .55s ease both; }
+
+        .answer-actions {
+            display: none;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .answer-actions.show { display: flex; animation: reveal .55s ease both; }
+
+        .share-button { color: var(--wine); background: #fff2e9; border-color: #e3b6af; }
+
+        .share-button:hover { background: #ffe6da; }
+
+        .later-message {
+            display: none;
+            margin-top: 22px;
+            color: var(--wine);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .later-message.show { display: block; animation: reveal .55s ease both; }
+
+        .replay-button {
+            margin-top: 26px;
+            padding: 0;
+            color: #9a6670;
+            background: transparent;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        @keyframes arrive { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes reveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 720px) {
+            .page { width: min(100% - 28px, 560px); padding: 28px 0; }
+            .proposal { grid-template-columns: 1fr; }
+            .photo { min-height: 360px; }
+            .letter { min-height: 480px; padding: 44px 30px 54px; }
+            .letter::before { top: 22px; right: 28px; }
+            .actions { align-items: flex-start; flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain" aria-hidden="true"></div>
+    <main class="page">
+        <section class="intro" id="intro" aria-label="Open the proposal">
+            <div class="intro-mark" aria-hidden="true">♥</div>
+            <span class="eyebrow">A private little note</span>
+            <h1>Something special is waiting.</h1>
+            <p>Tell me who this letter is for, then open it when you are ready.</p>
+            <form class="name-form" id="nameForm">
+                <label for="recipientName">Your name</label>
+                <input id="recipientName" name="recipientName" maxlength="40" autocomplete="name" placeholder="Type your name" autofocus>
+                <button class="open-button" type="submit">Open your letter</button>
+                <button class="later-button" id="skipName" type="button">Open without a name</button>
+            </form>
+        </section>
+        <section class="proposal" id="proposal" aria-label="A marriage proposal" hidden>
+            <div class="photo">
+                <div class="photo-caption">
+                    <span>For my favorite person</span>
+                    <p>Some things are too beautiful to keep to yourself.</p>
+                </div>
+            </div>
+            <div class="letter">
+                <span class="eyebrow">One question, forever to answer</span>
+                <h1><span id="recipientGreeting">Will you make my</span> <em>every day</em> brighter?</h1>
+                <p>
+                    You make ordinary moments feel like memories I want to keep forever.
+                    I love the life we are building, and I would choose you in every version
+                    of the future.
+                </p>
+                <div class="actions">
+                    <button class="yes-button" id="yesButton" type="button">Yes, I will ♥</button>
+                    <button class="later-button" id="laterButton" type="button">I need a moment</button>
+                    <span class="hint">There is only one right answer.</span>
+                </div>
+                <div class="answer" id="answer" role="status">You just made me the happiest person alive. I love you.</div>
+                <div class="answer-actions" id="answerActions">
+                    <button class="share-button" id="shareButton" type="button">Share this moment</button>
+                    <button class="replay-button" id="replayButton" type="button">Read it again</button>
+                </div>
+                <p class="later-message" id="laterMessage" role="status">That is okay. Take all the time you need. I will be right here.</p>
+            </div>
+        </section>
+    </main>
+    <script>
+        const intro = document.getElementById('intro');
+        const proposal = document.getElementById('proposal');
+        const nameForm = document.getElementById('nameForm');
+        const recipientName = document.getElementById('recipientName');
+        const recipientGreeting = document.getElementById('recipientGreeting');
+        const yesButton = document.getElementById('yesButton');
+        const answer = document.getElementById('answer');
+        const answerActions = document.getElementById('answerActions');
+        const laterMessage = document.getElementById('laterMessage');
+        const shareButton = document.getElementById('shareButton');
+        const replayButton = document.getElementById('replayButton');
+
+        function openLetter(name) {
+            const cleanName = name.trim();
+            recipientGreeting.textContent = cleanName ? `${cleanName}, will you make my` : 'Will you make my';
+            intro.hidden = true;
+            proposal.hidden = false;
+            document.title = cleanName ? `A letter for ${cleanName}` : 'A little question';
+            yesButton.focus();
+        }
+
+        nameForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            openLetter(recipientName.value);
+        });
+
+        document.getElementById('skipName').addEventListener('click', () => openLetter(''));
+
+        yesButton.addEventListener('click', () => {
+            answer.classList.add('show');
+            laterMessage.classList.remove('show');
+            answerActions.classList.add('show');
+            yesButton.textContent = 'Our forever starts now ♥';
+            yesButton.setAttribute('aria-label', 'Our forever starts now');
+            yesButton.disabled = true;
+        });
+
+        document.getElementById('laterButton').addEventListener('click', () => {
+            laterMessage.classList.add('show');
+            answer.classList.remove('show');
+            answerActions.classList.remove('show');
+        });
+
+        shareButton.addEventListener('click', async () => {
+            const shareData = { title: document.title, text: 'I have something important to ask you.', url: window.location.href };
+            try {
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                    shareButton.textContent = 'Shared ♥';
+                } else {
+                    await navigator.clipboard.writeText(window.location.href);
+                    shareButton.textContent = 'Link copied ♥';
+                }
+            } catch (error) {
+                shareButton.textContent = 'Ready to share ♥';
+            }
+        });
+
+        replayButton.addEventListener('click', () => {
+            answer.classList.remove('show');
+            answerActions.classList.remove('show');
+            yesButton.disabled = false;
+            yesButton.textContent = 'Yes, I will ♥';
+            laterMessage.classList.remove('show');
+            yesButton.focus();
+        });
+    </script>
+</body>
+</html>
