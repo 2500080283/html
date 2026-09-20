@@ -108,7 +108,13 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(PORT, () => {
-    console.log(`Portfolio Server running at http://localhost:${PORT}`);
-    console.log(`Student: Ch. Prudhvi Raj (2500080283) • KL University`);
-});
+// Export for Vercel Serverless Functions
+module.exports = app;
+
+// Listen locally if executed directly via CLI
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Portfolio Server running at http://localhost:${PORT}`);
+        console.log(`Student: Ch. Prudhvi Raj (2500080283) • KL University`);
+    });
+}
