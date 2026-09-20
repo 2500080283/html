@@ -1,0 +1,16 @@
+﻿[
+  {
+    "id": "2500080283",
+    "name": "Ch. Prudhvi Raj",
+    "email": "2500080283@kluniversity.in",
+    "dob": "2005-04-12",
+    "age": 21,
+    "gender": "male",
+    "phone": "9390858140",
+    "department": "CSE",
+    "skills": "HTML, CSS, JavaScript, React",
+    "address": "KL University Campus, Vaddeswaram, Guntur",
+    "state": "Andhra Pradesh",
+    "registeredAt": "2026-09-20T06:00:00Z"
+  }
+]

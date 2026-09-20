@@ -1,0 +1,16 @@
+﻿{
+  "name": "html-lab-backend",
+  "version": "1.0.0",
+  "description": "Full-Stack Express Backend for HTML Laboratory Practicals & Student Registration",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "author": "Ch. Prudhvi Raj (2500080283)",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0"
+  }
+}
