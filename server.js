@@ -1,4 +1,4 @@
-﻿const express = require('express');
+const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
@@ -89,6 +89,10 @@ app.post('/api/contact', (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
-    console.log(`HTML Lab Full-Stack Server running at http://localhost:${PORT}`);
-});
+module.exports = app;
+
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`HTML Lab Full-Stack Server running at http://localhost:${PORT}`);
+    });
+}
