@@ -53,9 +53,10 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
+            <canvas id="particleCanvas" class="hero-canvas"></canvas>
             <div class="hero-glow"></div>
             <div class="container hero-content">
-                <div class="hero-text">
+                <div class="hero-text reveal">
                     <div class="hero-badge">
                         <span class="hero-badge-dot"></span>
                         <span>Available for Opportunities & Projects</span>
@@ -76,9 +77,17 @@
                     </div>
                 </div>
 
-                <div class="hero-card-wrap">
-                    <div class="hero-card">
-                        <div class="avatar-circle">PR</div>
+                <div class="hero-card-wrap reveal reveal-delay-2">
+                    <div class="hero-card" data-tilt>
+                        <div class="photo-frame-container">
+                            <div class="photo-aura"></div>
+                            <div class="photo-frame">
+                                <img src="assets/prudhvi.jpg" alt="Ch. Prudhvi Raj - KL University" class="profile-img" loading="eager" />
+                            </div>
+                            <div class="online-indicator" title="Open for Collaboration">
+                                <span class="indicator-dot"></span>
+                            </div>
+                        </div>
                         <h3>Ch. Prudhvi Raj</h3>
                         <span class="student-id">Student ID: 2500080283</span>
                         <div class="hero-card-details">
@@ -107,20 +116,20 @@
         <!-- KPI Stats -->
         <section class="container">
             <div class="stats-grid">
-                <div class="stat-box">
-                    <div class="stat-number">6</div>
+                <div class="stat-box reveal reveal-delay-1" data-tilt>
+                    <div class="stat-number"><span class="counter" data-target="6">0</span></div>
                     <div class="stat-label">Active GitHub Repositories</div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number">100%</div>
+                <div class="stat-box reveal reveal-delay-2" data-tilt>
+                    <div class="stat-number"><span class="counter" data-target="100">0</span>%</div>
                     <div class="stat-label">Full-Stack REST APIs</div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number">1</div>
+                <div class="stat-box reveal reveal-delay-3" data-tilt>
+                    <div class="stat-number"><span class="counter" data-target="1">0</span></div>
                     <div class="stat-label">Production Vercel Deployment</div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number">4+</div>
+                <div class="stat-box reveal reveal-delay-4" data-tilt>
+                    <div class="stat-number"><span class="counter" data-target="4">0</span>+</div>
                     <div class="stat-label">Interactive Mini-Apps</div>
                 </div>
             </div>
@@ -549,6 +558,11 @@
             </div>
         </div>
     </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" class="back-to-top" aria-label="Back to Top" title="Back to Top">
+        <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+    </button>
 
     <!-- Footer -->
     <footer>

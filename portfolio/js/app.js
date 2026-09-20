@@ -1,10 +1,15 @@
-// Application Logic - Ch. Prudhvi Raj Portfolio
+// Application Logic & Advanced Animations - Ch. Prudhvi Raj Portfolio
 document.addEventListener('DOMContentLoaded', () => {
     initTypingEffect();
+    initParticleCanvas();
+    init3DTiltAndSpotlight();
+    initScrollReveal();
+    initAnimatedCounters();
     initProjectFiltering();
     initContactForm();
     initResumeModal();
     initScrollSpy();
+    initBackToTop();
 });
 
 // 1. Dynamic Typing Effect
@@ -22,8 +27,8 @@ function initTypingEffect() {
     let phraseIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
-    const typingSpeed = 90;
-    const deletingSpeed = 45;
+    const typingSpeed = 80;
+    const deletingSpeed = 40;
     const holdDuration = 1800;
 
     function type() {
@@ -54,7 +59,209 @@ function initTypingEffect() {
     type();
 }
 
-// 2. Project Card Filtering
+// 2. Interactive Constellation Canvas in Hero
+function initParticleCanvas() {
+    const canvas = document.getElementById('particleCanvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = canvas.parentElement.offsetWidth;
+    let height = canvas.height = canvas.parentElement.offsetHeight;
+
+    window.addEventListener('resize', () => {
+        if (!canvas.parentElement) return;
+        width = canvas.width = canvas.parentElement.offsetWidth;
+        height = canvas.height = canvas.parentElement.offsetHeight;
+    });
+
+    const particles = [];
+    const particleCount = Math.min(Math.floor((width * height) / 16000), 55);
+    const mouse = { x: null, y: null, radius: 140 };
+
+    window.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+    });
+
+    window.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.vx = (Math.random() - 0.5) * 0.8;
+            this.vy = (Math.random() - 0.5) * 0.8;
+            this.radius = Math.random() * 2 + 1.2;
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            if (this.x < 0 || this.x > width) this.vx *= -1;
+            if (this.y < 0 || this.y > height) this.vy *= -1;
+
+            // Mouse repulsion & interaction
+            if (mouse.x !== null && mouse.y !== null) {
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < mouse.radius) {
+                    const force = (mouse.radius - dist) / mouse.radius;
+                    const angle = Math.atan2(dy, dx);
+                    this.x -= Math.cos(angle) * force * 2;
+                    this.y -= Math.sin(angle) * force * 2;
+                }
+            }
+        }
+
+        draw(isDark) {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = isDark ? 'rgba(56, 189, 248, 0.7)' : 'rgba(37, 99, 235, 0.6)';
+            ctx.fill();
+        }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw(isDark);
+
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < 110) {
+                    const opacity = (1 - dist / 110) * (isDark ? 0.25 : 0.18);
+                    ctx.beginPath();
+                    ctx.strokeStyle = isDark ? `rgba(56, 189, 248, ${opacity})` : `rgba(37, 99, 235, ${opacity})`;
+                    ctx.lineWidth = 1;
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+}
+
+// 3. 3D Card Tilt & Mouse Spotlight Effect
+function init3DTiltAndSpotlight() {
+    const tiltCards = document.querySelectorAll('[data-tilt]');
+
+    tiltCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Set custom properties for spotlight gradient
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+
+            // Compute 3D rotation angles
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -7; // Max tilt 7deg
+            const rotateY = ((x - centerX) / centerX) * 7;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+            card.style.setProperty('--mouse-x', `50%`);
+            card.style.setProperty('--mouse-y', `50%`);
+        });
+    });
+}
+
+// 4. Scroll Reveal Animations
+function initScrollReveal() {
+    const reveals = document.querySelectorAll('.reveal');
+    if (!reveals.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // Also auto-reveal any section titles
+    document.querySelectorAll('.section-title, .section-header').forEach(el => {
+        el.classList.add('reveal');
+        observer.observe(el);
+    });
+}
+
+// 5. Animated Number Counters
+function initAnimatedCounters() {
+    const counters = document.querySelectorAll('.counter');
+    if (!counters.length) return;
+
+    let hasStarted = false;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !hasStarted) {
+                hasStarted = true;
+                counters.forEach(counter => {
+                    const target = Number(counter.getAttribute('data-target')) || 0;
+                    const duration = 1600;
+                    const startTime = performance.now();
+
+                    function updateCounter(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        // Ease out cubic
+                        const easeOut = 1 - Math.pow(1 - progress, 3);
+                        const current = Math.floor(easeOut * target);
+
+                        counter.textContent = current;
+
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    }
+
+                    requestAnimationFrame(updateCounter);
+                });
+                observer.disconnect();
+            }
+        });
+    }, { threshold: 0.2 });
+
+    const statsGrid = document.querySelector('.stats-grid');
+    if (statsGrid) observer.observe(statsGrid);
+}
+
+// 6. Project Card Filtering
 function initProjectFiltering() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
@@ -72,21 +279,21 @@ function initProjectFiltering() {
                     card.style.display = 'flex';
                     setTimeout(() => {
                         card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
+                        card.style.transform = 'translateY(0) scale(1)';
                     }, 10);
                 } else {
                     card.style.opacity = '0';
-                    card.style.transform = 'translateY(15px)';
+                    card.style.transform = 'translateY(15px) scale(0.97)';
                     setTimeout(() => {
                         card.style.display = 'none';
-                    }, 200);
+                    }, 220);
                 }
             });
         });
     });
 }
 
-// 3. Contact Form Submission (REST API + Offline Fallback)
+// 7. Contact Form Submission (REST API + Offline Fallback)
 function initContactForm() {
     const form = document.getElementById('portfolioContactForm');
     const statusEl = document.getElementById('contactFormStatus');
@@ -154,7 +361,7 @@ function initContactForm() {
     }
 }
 
-// 4. Resume Modal
+// 8. Resume Modal
 function initResumeModal() {
     const modal = document.getElementById('resumeModal');
     const openBtn = document.getElementById('openResumeBtn');
@@ -183,7 +390,7 @@ function initResumeModal() {
     });
 }
 
-// 5. ScrollSpy for Navbar
+// 9. ScrollSpy for Navbar
 function initScrollSpy() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -205,6 +412,27 @@ function initScrollSpy() {
             if (link.getAttribute('href') === `#${current}`) {
                 link.classList.add('active');
             }
+        });
+    });
+}
+
+// 10. Back to Top Button
+function initBackToTop() {
+    const btn = document.getElementById('backToTopBtn');
+    if (!btn) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 350) {
+            btn.classList.add('visible');
+        } else {
+            btn.classList.remove('visible');
+        }
+    });
+
+    btn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
     });
 }
