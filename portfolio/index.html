@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal Portfolio of Ch. Prudhvi Raj (2500080283) - Front-End & Full-Stack Developer at KL University.">
+    <meta name="author" content="Ch. Prudhvi Raj">
+    <title>Ch. Prudhvi Raj | Front-End & Full-Stack Developer</title>
+
+    <!-- Theme Initialization to Prevent FOUC -->
+    <meta name="color-scheme" content="light dark">
+    <script>
+        {
+            const saved = localStorage.getItem('portfolio-color-scheme');
+            const theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Sticky Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-brand">
+                <span class="brand-badge">PR</span>
+                <span>Ch. Prudhvi Raj</span>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#academics" class="nav-link">Academics</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="themeToggleBtn" class="theme-btn" aria-label="Toggle Theme" title="Toggle Theme">🌙</button>
+                <a href="https://github.com/2500080283" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-glow"></div>
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="hero-badge-dot"></span>
+                        <span>Available for Opportunities & Projects</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Hi, I'm <span class="gradient-text">Ch. Prudhvi Raj</span>
+                    </h1>
+                    <div class="hero-typing-wrap">
+                        <span id="typingText"></span><span class="typed-cursor">|</span>
+                    </div>
+                    <p class="hero-bio">
+                        Undergraduate Computer Science & Engineering student at <strong>KL University</strong> (ID: <code>2500080283</code>). Passionate about crafting lightning-fast, accessible front-end interfaces, modular UI design systems, and robust Node.js/Express REST APIs.
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="#projects" class="btn btn-primary">Explore My Work &darr;</a>
+                        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+                        <button id="openResumeBtn" class="btn btn-outline">View Resume / Profile</button>
+                    </div>
+                </div>
+
+                <div class="hero-card-wrap">
+                    <div class="hero-card">
+                        <div class="avatar-circle">PR</div>
+                        <h3>Ch. Prudhvi Raj</h3>
+                        <span class="student-id">Student ID: 2500080283</span>
+                        <div class="hero-card-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Institution:</span>
+                                <span class="detail-val">KL University (KLEF)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Program:</span>
+                                <span class="detail-val">B.Tech - Computer Science</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Focus Area:</span>
+                                <span class="detail-val">FED & Full-Stack Systems</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Location:</span>
+                                <span class="detail-val">Vaddeswaram, AP, India</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KPI Stats -->
+        <section class="container">
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Active GitHub Repositories</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Full-Stack REST APIs</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Production Vercel Deployment</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">4+</div>
+                    <div class="stat-label">Interactive Mini-Apps</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="section-subtitle">Bridging design aesthetics with engineering precision.</p>
+                </div>
+                <div style="background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 20px; padding: 36px; box-shadow: var(--card-shadow); max-width: 900px; margin: 0 auto;">
+                    <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">
+                        I am a passionate software engineering student enrolled in the <strong>Computer Science & Engineering (CSE)</strong> curriculum at <strong>KL University (Koneru Lakshmaiah Education Foundation)</strong>. My specialization centers on <strong>Front-End Development (FED)</strong> and modern <strong>Full-Stack Web Architecture</strong>.
+                    </p>
+                    <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 24px;">
+                        My development journey spans building high-performance single-page web applications, engineering responsive glassmorphic interfaces, and implementing zero-configuration Express REST APIs. I believe in writing modular, well-documented code with clean separation of concerns and robust offline-first fallback mechanisms.
+                    </p>
+                    <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                        <span class="skill-tag">💡 Problem Solver</span>
+                        <span class="skill-tag">⚡ Fast Learner</span>
+                        <span class="skill-tag">🎨 UI/UX Enthusiast</span>
+                        <span class="skill-tag">🛠️ Clean Code Advocate</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Matrix -->
+        <section id="skills" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Technical Expertise</h2>
+                    <p class="section-subtitle">Core technologies, frameworks, and workflows I work with daily.</p>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Frontend -->
+                    <div class="skill-card">
+                        <div class="skill-card-icon">🎨</div>
+                        <h3>Front-End Engineering</h3>
+                        <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 18px;">
+                            Crafting clean, accessible, and responsive visual interfaces with modern standards.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Semantic HTML5</span>
+                            <span class="skill-tag">Modern CSS3</span>
+                            <span class="skill-tag">Flexbox & CSS Grid</span>
+                            <span class="skill-tag">JavaScript (ES6+)</span>
+                            <span class="skill-tag">DOM Manipulation</span>
+                            <span class="skill-tag">Glassmorphism</span>
+                            <span class="skill-tag">Responsive Design</span>
+                            <span class="skill-tag">Canvas & Particle FX</span>
+                        </div>
+                    </div>
+
+                    <!-- Backend & APIs -->
+                    <div class="skill-card">
+                        <div class="skill-card-icon">⚙️</div>
+                        <h3>Backend & REST APIs</h3>
+                        <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 18px;">
+                            Architecting scalable web services, API routing, and reliable data persistence.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Express.js</span>
+                            <span class="skill-tag">RESTful API Design</span>
+                            <span class="skill-tag">JSON Datastores</span>
+                            <span class="skill-tag">CORS Middleware</span>
+                            <span class="skill-tag">Asynchronous Fetch</span>
+                            <span class="skill-tag">Sync & Dual-Mode</span>
+                            <span class="skill-tag">Server-Sent Events</span>
+                        </div>
+                    </div>
+
+                    <!-- Tools & Workflow -->
+                    <div class="skill-card">
+                        <div class="skill-card-icon">🚀</div>
+                        <h3>Tooling & Ecosystem</h3>
+                        <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 18px;">
+                            DevOps pipelines, version control, and development environments.
+                        </p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git & GitHub</span>
+                            <span class="skill-tag">Vercel Deployment</span>
+                            <span class="skill-tag">npm Package Manager</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">Antigravity IDE</span>
+                            <span class="skill-tag">Chrome DevTools</span>
+                            <span class="skill-tag">Postman / REST Client</span>
+                            <span class="skill-tag">Markdown Docs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Showcase -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-subtitle">All 6 repositories built, tested, and pushed to my GitHub profile.</p>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all">All Projects (6)</button>
+                    <button class="filter-btn" data-filter="fullstack">Full-Stack & APIs</button>
+                    <button class="filter-btn" data-filter="productivity">Productivity & Tools</button>
+                    <button class="filter-btn" data-filter="academic">Academic & Labs</button>
+                    <button class="filter-btn" data-filter="creative">Creative UI</button>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid">
+                    <!-- 1. WebProject -->
+                    <div class="project-card" data-category="fullstack">
+                        <div>
+                            <div class="project-header">
+                                <span class="project-badge">Capstone Portal</span>
+                                <span style="font-size:0.8rem; color:var(--text-subtle);">Port 5000</span>
+                            </div>
+                            <h3 class="project-title">EduHub KL</h3>
+                            <p class="project-tagline">Academic Student Portal & Attendance Forecaster</p>
+                            <p class="project-desc">
+                                Comprehensive academic hub for KL University students. Features an intelligent attendance forecaster (75% / 85% criteria), 10-point relative SGPA calculator, weekly timetable, and an Express REST API backend with JSON datastores.
+                            </p>
+                            <div class="project-stack">
+                                <span class="stack-pill">HTML5</span>
+                                <span class="stack-pill">CSS3</span>
+                                <span class="stack-pill">JavaScript</span>
+                                <span class="stack-pill">Node.js</span>
+                                <span class="stack-pill">Express</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/2500080283/WebProject" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">GitHub Repo &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- 2. FIRSTAPP -->
+                    <div class="project-card" data-category="productivity">
+                        <div>
+                            <div class="project-header">
+                                <span class="project-badge">Productivity Suite</span>
+                                <span style="font-size:0.8rem; color:var(--text-subtle);">Port 4000</span>
+                            </div>
+                            <h3 class="project-title">DevSprint</h3>
+                            <p class="project-tagline">Student Focus Suite & Pomodoro Timer</p>
+                            <p class="project-desc">
+                                High-velocity focus and productivity suite. Includes an audio-assisted Pomodoro focus timer, task manager with priority tags, and auto-saving notes scratchpad with dual-mode sync (REST API + localStorage).
+                            </p>
+                            <div class="project-stack">
+                                <span class="stack-pill">HTML5</span>
+                                <span class="stack-pill">CSS3</span>
+                                <span class="stack-pill">JavaScript</span>
+                                <span class="stack-pill">Node.js</span>
+                                <span class="stack-pill">localStorage</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/2500080283/FIRSTAPP" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">GitHub Repo &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- 3. FED -->
+                    <div class="project-card" data-category="academic">
+                        <div>
+                            <div class="project-header">
+                                <span class="project-badge">Coursework & Lab</span>
+                                <span style="font-size:0.8rem; color:var(--text-subtle);">Port 3001</span>
+                            </div>
+                            <h3 class="project-title">FED Curriculum Hub</h3>
+                            <p class="project-tagline">Front-End Laboratory & API Client Lab</p>
+                            <p class="project-desc">
+                                5-Module structured laboratory curriculum covering HTML5 Fundamentals, CSS3 Styling, JavaScript Core, 4 mini-projects, and an Express REST API backend integration lab with live HTTP inspection.
+                            </p>
+                            <div class="project-stack">
+                                <span class="stack-pill">HTML5</span>
+                                <span class="stack-pill">CSS3</span>
+                                <span class="stack-pill">JavaScript ES6+</span>
+                                <span class="stack-pill">Express</span>
+                                <span class="stack-pill">Fetch API</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/2500080283/FED" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">GitHub Repo &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- 4. html -->
+                    <div class="project-card" data-category="fullstack">
+                        <div>
+                            <div class="project-header">
+                                <span class="project-badge" style="background:#ecfdf5; color:#059669; border-color:#a7f3d0;">Live on Vercel</span>
+                                <span style="font-size:0.8rem; color:var(--text-subtle);">Port 3000</span>
+                            </div>
+                            <h3 class="project-title">Web Lab Portal</h3>
+                            <p class="project-tagline">Production Deployed Laboratory Suite</p>
+                            <p class="project-desc">
+                                Comprehensive web lab portal featuring semantic HTML5 layouts, table grids, form validations, media integration, and an Express backend for student registrations. Deployed live on Vercel.
+                            </p>
+                            <div class="project-stack">
+                                <span class="stack-pill">HTML5</span>
+                                <span class="stack-pill">CSS3</span>
+                                <span class="stack-pill">Vercel</span>
+                                <span class="stack-pill">Express</span>
+                                <span class="stack-pill">REST API</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://html-seven-pink.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Live Demo &rarr;</a>
+                            <a href="https://github.com/2500080283/html" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">GitHub</a>
+                        </div>
+                    </div>
+
+                    <!-- 5. LOVE -->
+                    <div class="project-card" data-category="creative">
+                        <div>
+                            <div class="project-header">
+                                <span class="project-badge" style="background:#fdf2f8; color:#db2777; border-color:#fbcfe8;">Interactive</span>
+                                <span style="font-size:0.8rem; color:var(--text-subtle);">Port 8080</span>
+                            </div>
+                            <h3 class="project-title">A Little Question ♥</h3>
+                            <p class="project-tagline">Interactive Romantic Proposal Experience</p>
+                            <p class="project-desc">
+                                Cinematic digital love letter featuring URL parameter personalization (?name=...), floating heart celebration particle physics, Web Share API, and an Express response recording database.
+                            </p>
+                            <div class="project-stack">
+                                <span class="stack-pill">HTML5</span>
+                                <span class="stack-pill">CSS3</span>
+                                <span class="stack-pill">Canvas FX</span>
+                                <span class="stack-pill">Web Share</span>
+                                <span class="stack-pill">Express</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/2500080283/LOVE" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">GitHub Repo &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- 6. sample -->
+                    <div class="project-card" data-category="productivity">
+                        <div>
+                            <div class="project-header">
+                                <span class="project-badge">UI Library</span>
+                                <span style="font-size:0.8rem; color:var(--text-subtle);">Port 5050</span>
+                            </div>
+                            <h3 class="project-title">UI Component Kit</h3>
+                            <p class="project-tagline">Design System Starters & Mock Server</p>
+                            <p class="project-desc">
+                                Modular UI component toolkit featuring baseline HTML5 boilerplates, responsive card grids, modern button state variants, and an Express mock REST API playground with live review persistence.
+                            </p>
+                            <div class="project-stack">
+                                <span class="stack-pill">HTML5</span>
+                                <span class="stack-pill">CSS3</span>
+                                <span class="stack-pill">Design System</span>
+                                <span class="stack-pill">Express</span>
+                                <span class="stack-pill">Mock API</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/2500080283/sample" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">GitHub Repo &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Timeline -->
+        <section id="academics" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Academic Journey</h2>
+                    <p class="section-subtitle">Key engineering milestones and technical progression at KL University.</p>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2026 • Current Phase</div>
+                            <h4 class="timeline-title">Full-Stack Web Development & Capstone Deployment</h4>
+                            <p class="timeline-desc">
+                                Engineered EduHub KL academic portal, configured Node.js and Express RESTful architectures, implemented JSON persistence engines, and deployed live services on Vercel.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2026 • Core Development</div>
+                            <h4 class="timeline-title">FED Coursework & Interactive Mini-Applications</h4>
+                            <p class="timeline-desc">
+                                Completed FED curriculum across 4 comprehensive modules, authored 4 interactive client applications (Scientific Calculator, Smart To-Do, SGPA Calculator, Weather Dashboard), and established reusable design component libraries.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Foundational Phase</div>
+                            <h4 class="timeline-title">Computer Science & Engineering Foundations</h4>
+                            <p class="timeline-desc">
+                                Mastered semantic web structure, CSS layout mechanics (Flexbox, Grid), object-oriented programming, data structures, and standard Git version control workflows.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="section-subtitle">Have a project, collaboration idea, or question? Send me a message!</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Let's Connect</h3>
+                        <p>
+                            Feel free to reach out for project inquiries, technical collaborations, or academic discussions.
+                        </p>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <div class="contact-item-title">Official Email</div>
+                                <div class="contact-item-val"><a href="mailto:2500080283@kluniversity.in">2500080283@kluniversity.in</a></div>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">💻</div>
+                            <div>
+                                <div class="contact-item-title">GitHub Profile</div>
+                                <div class="contact-item-val"><a href="https://github.com/2500080283" target="_blank" rel="noopener noreferrer">github.com/2500080283</a></div>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <div class="contact-item-title">Campus Location</div>
+                                <div class="contact-item-val">KL University, Vaddeswaram, Andhra Pradesh, India</div>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">🌐</div>
+                            <div>
+                                <div class="contact-item-title">Live Deployment</div>
+                                <div class="contact-item-val"><a href="https://html-seven-pink.vercel.app" target="_blank" rel="noopener noreferrer">html-seven-pink.vercel.app</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Form -->
+                    <div class="contact-form-card">
+                        <form id="portfolioContactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="senderName">Your Name *</label>
+                                    <input type="text" id="senderName" class="form-input" placeholder="e.g. Alex Smith" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="senderEmail">Your Email *</label>
+                                    <input type="email" id="senderEmail" class="form-input" placeholder="e.g. alex@example.com" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="senderSubject">Subject</label>
+                                <input type="text" id="senderSubject" class="form-input" placeholder="e.g. Collaboration on Web Project">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="senderMessage">Message *</label>
+                                <textarea id="senderMessage" class="form-textarea" placeholder="Write your thoughts or inquiry here..." required></textarea>
+                            </div>
+
+                            <button type="submit" id="submitContactBtn" class="btn btn-primary" style="width: 100%;">Send Message &rarr;</button>
+                            <div id="contactFormStatus" class="form-status"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Resume / Profile Modal -->
+    <div id="resumeModal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="closeResumeBtn" class="modal-close">&times;</button>
+            <h2 style="margin-bottom: 8px;">Ch. Prudhvi Raj</h2>
+            <p style="color: var(--brand-primary); font-weight: 600; margin-bottom: 20px;">Front-End & Full-Stack Developer • Student ID: 2500080283</p>
+
+            <h3 style="font-size: 1.1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 6px; margin-bottom: 12px;">Education</h3>
+            <p><strong>B.Tech in Computer Science & Engineering</strong></p>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px;">KL University (KLEF) • Andhra Pradesh, India</p>
+
+            <h3 style="font-size: 1.1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 6px; margin-bottom: 12px;">Technical Skills</h3>
+            <ul style="padding-left: 20px; font-size: 0.95rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 16px;">
+                <li><strong>Languages:</strong> JavaScript (ES6+), HTML5, CSS3, C/C++, Python fundamentals</li>
+                <li><strong>Backend:</strong> Node.js, Express.js, REST APIs, JSON Datastores, CORS</li>
+                <li><strong>Deployment & Tools:</strong> Git, GitHub, Vercel, npm, Chrome DevTools, VS Code</li>
+            </ul>
+
+            <h3 style="font-size: 1.1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 6px; margin-bottom: 12px;">Highlighted Projects</h3>
+            <ul style="padding-left: 20px; font-size: 0.95rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 24px;">
+                <li><strong>EduHub KL:</strong> Full-stack university academic portal with attendance calculation and SGPA/CGPA evaluation engine.</li>
+                <li><strong>DevSprint:</strong> Full-stack student productivity application with Pomodoro focus timer and dual REST/local sync.</li>
+                <li><strong>FED Coursework:</strong> 5-module comprehensive front-end engineering curriculum with live API integration lab.</li>
+            </ul>
+
+            <div style="display: flex; gap: 12px;">
+                <button onclick="window.print()" class="btn btn-primary btn-sm">Print / Save as PDF</button>
+                <a href="mailto:2500080283@kluniversity.in" class="btn btn-outline btn-sm">Contact Me</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">
+                &copy; 2026 <strong>Ch. Prudhvi Raj</strong> (ID: <code>2500080283</code>) • Department of Computer Science & Engineering, KL University.
+            </p>
+            <p class="footer-text" style="font-size: 0.8rem; margin-top: 6px; color: var(--text-subtle);">
+                Built with semantic HTML5, modern CSS3, Express REST API, and deployed with love ♥.
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

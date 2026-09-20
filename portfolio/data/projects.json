@@ -1,0 +1,74 @@
+[
+  {
+    "id": "webproject",
+    "title": "EduHub KL Academic Portal",
+    "tagline": "Capstone University Portal with Real-Time Attendance & SGPA/CGPA Calculators",
+    "category": "fullstack",
+    "badge": "Capstone",
+    "repo": "https://github.com/2500080283/WebProject",
+    "demo": "https://github.com/2500080283/WebProject",
+    "description": "Comprehensive academic portal tailored for KL University students. Features an intelligent attendance forecaster (calculating classes needed to achieve 75% and 85% eligibility), a 10-point relative SGPA/CGPA grade calculation engine, timetable planner, and an Express REST API backend with persistent JSON stores.",
+    "stack": ["HTML5", "CSS3", "JavaScript", "Node.js", "Express", "REST API"],
+    "port": 5000
+  },
+  {
+    "id": "firstapp",
+    "title": "DevSprint Productivity Suite",
+    "tagline": "Student Focus Dashboard with Pomodoro Timer & Dual-Sync Engine",
+    "category": "productivity",
+    "badge": "Flagship App",
+    "repo": "https://github.com/2500080283/FIRSTAPP",
+    "demo": "https://github.com/2500080283/FIRSTAPP",
+    "description": "High-velocity study and task manager for engineering students. Features a configurable Pomodoro focus timer with cycle notifications, task categorization with priority badges, and an auto-saving markdown notes scratchpad. Operates on a dual-mode sync engine that seamlessly syncs with an Express REST API or falls back to localStorage.",
+    "stack": ["HTML5", "CSS3", "JavaScript", "Node.js", "Express", "localStorage"],
+    "port": 4000
+  },
+  {
+    "id": "fed",
+    "title": "FED Curriculum & API Integration Hub",
+    "tagline": "5-Module Front-End Development Laboratory Coursework & Mini-Projects",
+    "category": "academic",
+    "badge": "Academic Lab",
+    "repo": "https://github.com/2500080283/FED",
+    "demo": "https://github.com/2500080283/FED",
+    "description": "Interactive laboratory curriculum repository spanning HTML5 Fundamentals, CSS3 Styling, JavaScript Core, 4 interactive mini-projects (Smart Task Manager, Scientific Calculator, SGPA Calculator, Weather Dashboard), and Module 05: a full-stack REST API client integration and HTTP inspection lab.",
+    "stack": ["HTML5", "CSS3", "ES6+ JS", "Node.js", "Express", "Fetch API"],
+    "port": 3001
+  },
+  {
+    "id": "html",
+    "title": "KLU Web Lab Portal",
+    "tagline": "Production-Deployed Web Development Lab on Vercel",
+    "category": "fullstack",
+    "badge": "Live on Vercel",
+    "repo": "https://github.com/2500080283/html",
+    "demo": "https://html-seven-pink.vercel.app",
+    "description": "Official Web Development Laboratory collection deployed live on Vercel. Covers semantic document layouts, comprehensive table and form validations, media integration, and an Express REST API backend for student registration with database persistence.",
+    "stack": ["HTML5", "CSS3", "Vercel", "Node.js", "Express", "REST API"],
+    "port": 3000
+  },
+  {
+    "id": "love",
+    "title": "A Little Question ♥",
+    "tagline": "Interactive Romantic Digital Experience & Particle Physics",
+    "category": "creative",
+    "badge": "Interactive",
+    "repo": "https://github.com/2500080283/LOVE",
+    "demo": "https://github.com/2500080283/LOVE",
+    "description": "An elegant, cinematic digital love letter and proposal experience. Supports real-time dynamic name personalization via URL query parameters (?name=...), floating heart celebration particle physics, Web Share API, and an Express backend that records and timestamps responses.",
+    "stack": ["HTML5", "CSS3", "Canvas/Particles", "Web Share API", "Node.js", "Express"],
+    "port": 8080
+  },
+  {
+    "id": "sample",
+    "title": "Web UI Component Kit & Mock Server",
+    "tagline": "Modular Component Library with Express Mock API Playground",
+    "category": "productivity",
+    "badge": "Tooling",
+    "repo": "https://github.com/2500080283/sample",
+    "demo": "https://github.com/2500080283/sample",
+    "description": "A reusable design system kit featuring baseline HTML5 boilerplates, responsive card grids, modern button state variants, and a built-in Node.js Express mock REST server on port 5050 with live interactive API playground and test feedback persistence.",
+    "stack": ["HTML5", "CSS3", "Design Systems", "Node.js", "Express", "Mock API"],
+    "port": 5050
+  }
+]

@@ -1,0 +1,75 @@
+/* Modern Web Guidance Compliant Theme Tokens */
+:root {
+    /* Brand & Accent */
+    --brand-primary: #2563eb;
+    --brand-primary-hover: #1d4ed8;
+    --brand-gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #ec4899 100%);
+    --brand-accent: #38bdf8;
+
+    /* Light Mode Default Tokens */
+    --bg-page: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #f1f5f9;
+    --bg-card: rgba(255, 255, 255, 0.85);
+    --border-color: #e2e8f0;
+    --border-card: rgba(226, 232, 240, 0.8);
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --text-subtle: #94a3b8;
+    --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+    --glow-effect: 0 0 40px -10px rgba(37, 99, 235, 0.15);
+    --code-bg: #0f172a;
+    --code-color: #38bdf8;
+
+    color-scheme: light dark;
+}
+
+/* System Dark Mode Preference */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-page: #0b0f19;
+        --bg-surface: #111827;
+        --bg-surface-elevated: #1e293b;
+        --bg-card: rgba(17, 24, 39, 0.8);
+        --border-color: #1f293d;
+        --border-card: rgba(255, 255, 255, 0.08);
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --text-subtle: #64748b;
+        --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+        --glow-effect: 0 0 50px -5px rgba(56, 189, 248, 0.2);
+        --code-bg: #030712;
+        --code-color: #7dd3fc;
+    }
+}
+
+/* Explicit User Overrides */
+html[data-theme="light"] {
+    --bg-page: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #f1f5f9;
+    --bg-card: rgba(255, 255, 255, 0.85);
+    --border-color: #e2e8f0;
+    --border-card: rgba(226, 232, 240, 0.8);
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --text-subtle: #94a3b8;
+    --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06);
+    --glow-effect: 0 0 40px -10px rgba(37, 99, 235, 0.15);
+    color-scheme: light;
+}
+
+html[data-theme="dark"] {
+    --bg-page: #0b0f19;
+    --bg-surface: #111827;
+    --bg-surface-elevated: #1e293b;
+    --bg-card: rgba(17, 24, 39, 0.8);
+    --border-color: #1f293d;
+    --border-card: rgba(255, 255, 255, 0.08);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --text-subtle: #64748b;
+    --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    --glow-effect: 0 0 50px -5px rgba(56, 189, 248, 0.2);
+    color-scheme: dark;
+}
