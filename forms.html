@@ -1,62 +1,286 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HTML Form Elements & Validation</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f1f5f9;
+            color: #1e293b;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .back-nav {
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 650px;
+        }
+        .back-nav a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .back-nav a:hover {
+            text-decoration: underline;
+        }
+        .form-card {
+            width: 100%;
+            max-width: 650px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+        .form-header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #ffffff;
+            padding: 24px;
+            text-align: center;
+        }
+        .form-header h1 {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+        .form-header p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+        form {
+            padding: 28px;
+        }
+        fieldset {
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: #f8fafc;
+        }
+        legend {
+            font-weight: 700;
+            color: #334155;
+            padding: 0 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 6px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="date"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 14px;
+            background-color: #ffffff;
+            color: #1e293b;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+        .inline-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 6px;
+        }
+        .radio-label, .checkbox-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            color: #334155;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+        .actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        button[type="submit"] {
+            flex: 2;
+            padding: 12px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #1d4ed8;
+        }
+        button[type="reset"] {
+            flex: 1;
+            padding: 12px;
+            background-color: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+        }
+        button[type="reset"]:hover {
+            background-color: #e2e8f0;
+        }
+        .success-msg {
+            display: none;
+            background-color: #dcfce7;
+            border: 1px solid #86efac;
+            color: #166534;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
 </head>
-<body style="background-color: beige;align-items: center;border: 2px solid black;">
+<body>
 
-    <form div style="margin: 20px; padding: 20px; border: 1px solid black; background-color: lightgray;">
+    <div class="back-nav">
+        <a href="index.html">&larr; Back to Lab Hub</a>
+    </div>
 
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
-        <br><br>
+    <div class="form-card">
+        <div class="form-header">
+            <h1>HTML Form Controls</h1>
+            <p>Demonstrating input types, fieldsets, selects, and validation</p>
+        </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email">
-        <br><br>
+        <form id="demoForm">
+            <div id="successMsg" class="success-msg">
+                Form validated and submitted successfully!
+            </div>
 
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age">       
-        <br><br>
+            <fieldset>
+                <legend>Personal Information</legend>
+                
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
 
-        <label for="dob">Date of Birth:</label>
-        <input type="date" id="dob" name="dob">     
-        <br><br>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required placeholder="user@kluniversity.in">
+                </div>
 
-        <label for="Department">Department:</label>
-        <select id="Department" name="Department">
-            <option value="HR">HR</option>
-            <option value="IT">IT</option>
-            <option value="Finance">Finance</option>
-            <option value="Marketing">Marketing</option>
-        </select>
-        <br><br>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" min="16" max="100" placeholder="18">
+                </div>
 
-        <label>Checkboxes:</label><br>
-        <input type="checkbox" id="first year" name="first year" value="first year">
-        <label for="first year"> First Year</label><br>  
-        <input type="checkbox" id="second year" name="second year" value="second year">
-        <label for="second year"> Second Year</label><br>          
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob">
+                </div>
+            </fieldset>
 
+            <fieldset>
+                <legend>Academic & Security</legend>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password">
-        <br><br>
+                <div class="form-group">
+                    <label for="department">Department:</label>
+                    <select id="department" name="department" required>
+                        <option value="">-- Select Department --</option>
+                        <option value="CSE">Computer Science & Engineering (CSE)</option>
+                        <option value="AI&DS">Artificial Intelligence & Data Science</option>
+                        <option value="AI&ML">AI & Machine Learning</option>
+                        <option value="ECE">Electronics & Communication (ECE)</option>
+                        <option value="IT">Information Technology</option>
+                        <option value="BBA">Business Administration (BBA)</option>
+                    </select>
+                </div>
 
-        <label for="gender">Gender:</label>
-        <input type="radio" id="male" name="gender" value="male">
-        <label for="male">Male</label>
-        <br><br>
+                <div class="form-group">
+                    <label>Academic Year:</label>
+                    <div class="inline-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="first-year" name="academicYear" value="First Year"> First Year
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="second-year" name="academicYear" value="Second Year"> Second Year
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="third-year" name="academicYear" value="Third Year"> Third Year
+                        </label>
+                    </div>
+                </div>
 
-        <label for="female">Female:</label>
-        <input type="radio" id="female" name="gender" value="female">
-        <label for="female">Female</label>
-        <br><br>
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <div class="inline-group">
+                        <label class="radio-label">
+                            <input type="radio" id="gender-male" name="gender" value="male" required> Male
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" id="gender-female" name="gender" value="female"> Female
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" id="gender-other" name="gender" value="other"> Other
+                        </label>
+                    </div>
+                </div>
 
-        <input type="submit" value="Submit">
-    </form>
+                <div class="form-group">
+                    <label for="password">Account Password:</label>
+                    <input type="password" id="password" name="password" required minlength="6" placeholder="Minimum 6 characters">
+                </div>
+            </fieldset>
 
+            <div class="actions">
+                <button type="submit">Submit Form</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('demoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const success = document.getElementById('successMsg');
+            success.style.display = 'block';
+            setTimeout(() => {
+                success.style.display = 'none';
+            }, 4000);
+        });
+    </script>
 </body>
 </html>

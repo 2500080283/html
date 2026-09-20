@@ -1,114 +1,246 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USERPAGE--FORM</title>
+    <title>USERPAGE Form - KL University</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: #f8fafc;
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .back-nav {
+            margin-bottom: 16px;
+            width: 100%;
+            max-width: 650px;
+        }
+        .back-nav a {
+            color: #8b0000;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .form-card {
+            width: 100%;
+            max-width: 650px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        header {
+            background-color: #8b0000;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 22px;
+        }
+        form {
+            padding: 24px;
+        }
+        .form-row {
+            margin-bottom: 16px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            color: #334155;
+            margin-bottom: 6px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="date"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .inline-options {
+            display: flex;
+            gap: 16px;
+            margin-top: 4px;
+        }
+        .inline-options label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: normal;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 8px;
+            margin-top: 6px;
+        }
+        .skills-grid label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: normal;
+            font-size: 13px;
+        }
+        .btn-submit {
+            background-color: #8b0000;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .btn-submit:hover {
+            background-color: #6a0000;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #64748b;
+            font-size: 13px;
+        }
+    </style>
 </head>
-<body div style="background-image: url('KL_University_logo.svg');align-items: center;border: 2px solid black;align-items: center;BORDER-RADIUS: 10PX; padding: 20px; margin: 20px;width: full;height: full;">
-    <header  div style="background-color: beige;align-items: center;border: 2px solid black;align-items: center;">
-        <h1 style="color: black; text-align: center;">USERPAGE--FORM</h1>
-    </header>    
+<body>
 
-    <form DIV style="background-color: rgb(179, 63, 63);align-items: center;border: 2px solid black;align-items: center;BORDER-RADIUS: 10PX; padding: 20px; margin: 20px;">
-        <label for="name">USERNAME:</label>
-        <input type="text" name="name" placeholder="Enter your name:">
-        <br><br>
-        <label for="email">EMAIL:</label>
-        <input type="email" name="email" placeholder="Enter your email:">
-        <br><br>
-        <label for="age">AGE:</label>
-        <input type="number" name="age" placeholder="Enter your age:">
-        <br><br>
-        <label for="dob">DATE OF BIRTH:</label>
-        <input type="date" name="dob" placeholder="Enter your date of birth:">
-        <br><br>
-        <label> GENDER </label>
-        <input type="radio" name="gender" value="male"> 
-        <label for="male">Male</label>
-        <input type="radio" name="gender" value="female"> 
-        <label for="female">Female</label>
-        <br><br>
-        <label for="phone">PHONE:</label>
-        <input type="tel" name="phone" placeholder="Enter your phone number:">
-        <br><br>
-        <label for="Department">DEPARTMENT:</label>
-        <select name="Department">
-            <option value="CSE">CSE</option>
-            <option value="AI&DS">AI&DS</option>
-            <option value="AI&ML">AI&ML</option>
-            <option value="BBA">BBA</option>
-            <option value="CS&IT">CS&IT</option>
-            <option value="ECE">ECE</option>
-            <option value="EEE">EEE</option>
-        </select>
-        <br><br>
-        <label>SKILLS:</label>
-        <input type="checkbox" name="skills" value="HTML">
-        <label for="HTML">HTML</label>
-        <input type="checkbox" name="skills" value="CSS">
-        <label for="CSS">CSS</label>
-        <input type="checkbox" name="skills" value="JS">
-        <label for="JS">JS</label>
-        <input type="checkbox" name="skills" value="PHP">
-        <label for="PHP">PHP</label>
-        <input type="checkbox" name="skills" value="PYTHON">
-        <label for="PYTHON">PYTHON</label>
-        <input type="checkbox" name="skills" value="JAVA">
-        <label for="JAVA">JAVA</label>
-        <input type="checkbox" name="skills" value="C++">
-        <label for="C++">C++</label>    
-        <input type="checkbox" name="skills" value="C">
-        <label for="C">C</label>
-        <input type="checkbox" name="skills" value="SQL">
-        <label for="SQL">SQL</label>
-        <input type="checkbox" name="skills" value="REACT">
-        <label for="REACT">REACT</label>
-        <br><br>
-        <label for="address">ADDRESS:</label>
-        <textarea name="address" placeholder="Enter your address:"></textarea>
-        <br><br>
-       <optgroup label="STATE">
-        <select name="state">
-            <option value="Andhra Pradesh">Andhra Pradesh</option>
-            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-            <option value="Assam">Assam</option>
-            <option value="Bihar">Bihar</option>
-            <option value="Chhattisgarh">Chhattisgarh</option>
-            <option value="Goa">Goa</option>
-            <option value="Gujarat">Gujarat</option>
-            <option value="Haryana">Haryana</option>
-            <option value="Himachal Pradesh">Himachal Pradesh</option>
-            <option value="Jharkhand">Jharkhand</option>
-            <option value="Karnataka">Karnataka</option>
-            <option value="Kerala">Kerala</option>
-            <option value="Madhya Pradesh">Madhya Pradesh</option>
-            <option value="Maharashtra">Maharashtra</option>
-            <option value="Manipur">Manipur</option>
-            <option value="Meghalaya">Meghalaya</option>
-            <option value="Mizoram">Mizoram</option>
-            <option value="Nagaland">Nagaland</option>
-            <option value="Odisha">Odisha</option>
-            <option value="Punjab">Punjab</option>
-            <option value="Rajasthan">Rajasthan</option>
-            <option value="Sikkim">Sikkim</option>
-            <option value="Tamil Nadu">Tamil Nadu</option>
-            <option value="Telangana">Telangana</option>
-            <option value="Tripura">Tripura</option>
-            <option value="Uttar Pradesh">Uttar Pradesh</option>
-            <option value="Uttarakhand">Uttarakhand</option>
-            <option value="West Bengal">West Bengal</option>    
-        </select> 
-        </optgroup> 
-        <br><br> 
-        <input type="submit" name="submit" value="Submit">
-        <input type="reset" value="Reset" value="Reset">
-    </form>
+    <div class="back-nav">
+        <a href="index.html">&larr; Back to Lab Hub</a>
+    </div>
+
+    <div class="form-card">
+        <header>
+            <h1>Student Information Form</h1>
+        </header>
+
+        <form>
+            <div class="form-row">
+                <label for="name">USERNAME:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name:">
+            </div>
+
+            <div class="form-row">
+                <label for="email">EMAIL:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email:">
+            </div>
+
+            <div class="form-row">
+                <label for="age">AGE:</label>
+                <input type="number" id="age" name="age" placeholder="Enter your age:">
+            </div>
+
+            <div class="form-row">
+                <label for="dob">DATE OF BIRTH:</label>
+                <input type="date" id="dob" name="dob">
+            </div>
+
+            <div class="form-row">
+                <label>GENDER:</label>
+                <div class="inline-options">
+                    <label for="male"><input type="radio" id="male" name="gender" value="male"> Male</label>
+                    <label for="female"><input type="radio" id="female" name="gender" value="female"> Female</label>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label for="phone">PHONE:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number:">
+            </div>
+
+            <div class="form-row">
+                <label for="department">DEPARTMENT:</label>
+                <select id="department" name="Department">
+                    <option value="CSE">CSE</option>
+                    <option value="AI&DS">AI&DS</option>
+                    <option value="AI&ML">AI&ML</option>
+                    <option value="BBA">BBA</option>
+                    <option value="CS&IT">CS&IT</option>
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <label>SKILLS:</label>
+                <div class="skills-grid">
+                    <label for="skill-html"><input type="checkbox" id="skill-html" name="skills" value="HTML"> HTML</label>
+                    <label for="skill-css"><input type="checkbox" id="skill-css" name="skills" value="CSS"> CSS</label>
+                    <label for="skill-js"><input type="checkbox" id="skill-js" name="skills" value="JS"> JS</label>
+                    <label for="skill-php"><input type="checkbox" id="skill-php" name="skills" value="PHP"> PHP</label>
+                    <label for="skill-py"><input type="checkbox" id="skill-py" name="skills" value="PYTHON"> PYTHON</label>
+                    <label for="skill-java"><input type="checkbox" id="skill-java" name="skills" value="JAVA"> JAVA</label>
+                    <label for="skill-cpp"><input type="checkbox" id="skill-cpp" name="skills" value="C++"> C++</label>
+                    <label for="skill-c"><input type="checkbox" id="skill-c" name="skills" value="C"> C</label>
+                    <label for="skill-sql"><input type="checkbox" id="skill-sql" name="skills" value="SQL"> SQL</label>
+                    <label for="skill-react"><input type="checkbox" id="skill-react" name="skills" value="REACT"> REACT</label>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label for="address">ADDRESS:</label>
+                <textarea id="address" name="address" rows="3" placeholder="Enter your address:"></textarea>
+            </div>
+
+            <div class="form-row">
+                <label for="state">STATE:</label>
+                <select id="state" name="state">
+                    <optgroup label="States">
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-submit">Submit</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Ch. Prudhvi Raj • KL SAC • All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
-
-<footer div style="background-color: beige;align-items: center;border: 2px solid black;align-items: center; border-radius: 10px; padding: 20px; margin: 20px;">
-    <p style="color: black; text-align: center;">
-    &copy; 2026 USERPAGE--FORM.|Ch.prudhvi raj|KL SAC| All rights reserved.
-    </p>
-</footer>

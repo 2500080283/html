@@ -1,56 +1,548 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Front-End Development Lab Portfolio | Ch. Prudhvi Raj (2500080283)</title>
+    <style>
+        :root {
+            --primary: #8b0000;
+            --primary-dark: #550000;
+            --primary-light: #fef2f2;
+            --accent: #d97706;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #ffffff;
+            padding: 40px 20px 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .university-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #fde68a;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .top-banner h1 {
+            font-size: clamp(28px, 4vw, 38px);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+
+        .top-banner p {
+            font-size: 16px;
+            color: #f1f5f9;
+            max-width: 650px;
+            margin: 0 auto 20px;
+        }
+
+        .student-meta {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            background: #ffffff;
+            color: var(--text-dark);
+            padding: 10px 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .student-meta strong {
+            color: var(--primary);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 1100px;
+            width: 100%;
+            margin: -25px auto 40px;
+            padding: 0 20px;
+            flex: 1;
+        }
+
+        /* Section Headings */
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 32px 0 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        /* Cards Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary);
+        }
+
+        .card-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .card-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .card-title h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .card-tag {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 6px;
+            background: #e2e8f0;
+            color: #475569;
+            display: inline-block;
+        }
+
+        .card-tag.highlight {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            flex: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border);
+            padding-top: 14px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Inline Text Tags Showcase Box */
+        .preview-box {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+            margin-top: 10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .tags-demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            margin-top: 14px;
+        }
+
+        .tag-demo-card {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 14px;
+        }
+
+        .tag-demo-card strong {
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 14px;
+            margin-top: auto;
+        }
+
+        footer a {
+            color: #fde68a;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <p>sample paragraph same paragraph </p>
-    <h1 style="font-size: 20px;">first heading</h1>
-    <h2 style="font-size: 20px;">second</h2>
-    <h3 style="font-size: 20px;">third</h3>
-    <h4 style="font-size: 20px;">iwdhp</h4>
-    <h5 style="font-size: 20px;">owirjfphrpo</h5>
-    <h6 style="font-size: 20px;">;ilhufyur</h6>
-    <br>
-    <hr>
-    <b>bold text</b>
-    <br>
-    <hr>
-    <strong>strong</strong>
-    <br>
-    <hr>
-    <i>Italic Text</i>
-    <br>
-    <hr>
-    <u> ishflkifd</u>
-    <br>
-    <hr>
-    <mark>hiif</mark>
-    <br>
-    <hr>
-    <mark>marked text</mark>
-    <br>
-    <hr>
-    <small>doiuc</small>
-    <br>
-    <hr>
-    <p>Water:H<sub>2</sub>O</p>
-    <br>
-    <hr>
-    <p>2<sub>3</sub></p>
-    <br>
-    <hr>
-    <del>delete text</del>
-    <br>
-    <ins>ins text</ins>
-    <br>
-    <pre>
-        Sujith : Student
-    </pre>
-    <p>sujith     student</p>
-    <br>
-    <pre> Sujiii  :  student</pre>
+
+    <header class="top-banner">
+        <div class="header-content">
+            <div class="university-badge">
+                <span>🏛️</span> KL University • FED Laboratory Portfolio
+            </div>
+            <h1>Frontend Development Experiments</h1>
+            <p>Comprehensive repository of HTML5, CSS3, JavaScript coursework, forms, media, and interactive interfaces.</p>
+            
+            <div class="student-meta">
+                <span>Student: <strong>Ch. Prudhvi Raj</strong></span>
+                <span>ID: <strong>2500080283</strong></span>
+                <span>Dept: <strong>Computer Science & Engineering</strong></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h2 class="section-title">Core Laboratory Practicals</h2>
+        <div class="grid">
+            <!-- USERPAGE.html -->
+            <a href="USERPAGE.html" class="card">
+                <div>
+                    <div class="card-top">
+                        <div class="card-icon">📝</div>
+                        <div class="card-title">
+                            <h3>Student Profile & Registration</h3>
+                            <span class="card-tag highlight">Interactive App</span>
+                        </div>
+                    </div>
+                    <p>Complete validation engine, dynamic DOB-to-age calculator, multi-field error checks, and interactive review confirmation modal.</p>
+                </div>
+                <div class="card-footer">
+                    <span>Launch Application</span>
+                    <span>&rarr;</span>
+                </div>
+            </a>
+
+            <!-- tabletags.html -->
+            <a href="tabletags.html" class="card">
+                <div>
+                    <div class="card-top">
+                        <div class="card-icon">📊</div>
+                        <div class="card-title">
+                            <h3>Student Information Table</h3>
+                            <span class="card-tag">Table Semantics</span>
+                        </div>
+                    </div>
+                    <p>W3C compliant tabular layout with semantic headers, zebra striping, status badges, and official university emblem.</p>
+                </div>
+                <div class="card-footer">
+                    <span>View Student Table</span>
+                    <span>&rarr;</span>
+                </div>
+            </a>
+
+            <!-- forms.html -->
+            <a href="forms.html" class="card">
+                <div>
+                    <div class="card-top">
+                        <div class="card-icon">📋</div>
+                        <div class="card-title">
+                            <h3>HTML5 Form Controls</h3>
+                            <span class="card-tag">Forms & Inputs</span>
+                        </div>
+                    </div>
+                    <p>Comprehensive demonstration of input types, fieldset groupers, legends, select menus, radio buttons, and validation attributes.</p>
+                </div>
+                <div class="card-footer">
+                    <span>Explore Form Controls</span>
+                    <span>&rarr;</span>
+                </div>
+            </a>
+
+            <!-- sechmatic.html -->
+            <a href="sechmatic.html" class="card">
+                <div>
+                    <div class="card-top">
+                        <div class="card-icon">🏗️</div>
+                        <div class="card-title">
+                            <h3>Semantic Web Architecture</h3>
+                            <span class="card-tag">HTML5 Semantics</span>
+                        </div>
+                    </div>
+                    <p>Clean semantic document structure using header, nav, aside, main, article, section, details, summary, time, and footer.</p>
+                </div>
+                <div class="card-footer">
+                    <span>Open Semantic Demo</span>
+                    <span>&rarr;</span>
+                </div>
+            </a>
+
+            <!-- all-tags.html -->
+            <a href="all-tags.html" class="card">
+                <div>
+                    <div class="card-top">
+                        <div class="card-icon">🏷️</div>
+                        <div class="card-title">
+                            <h3>Complete HTML5 Tag Guide</h3>
+                            <span class="card-tag highlight">Master Reference</span>
+                        </div>
+                    </div>
+                    <p>Exhaustive dictionary and visual showcase of modern HTML tags, text formatting, multimedia, canvas, and datalists.</p>
+                </div>
+                <div class="card-footer">
+                    <span>View All Tags</span>
+                    <span>&rarr;</span>
+                </div>
+            </a>
+
+            <!-- sechematic-ai.html -->
+            <a href="sechematic-ai.html" class="card">
+                <div>
+                    <div class="card-top">
+                        <div class="card-icon">✨</div>
+                        <div class="card-title">
+                            <h3>Modern Web Portfolio</h3>
+                            <span class="card-tag">CSS Grid / Flexbox</span>
+                        </div>
+                    </div>
+                    <p>Polished developer portfolio layout with glassmorphism header, responsive split columns, project showcases, and quick links.</p>
+                </div>
+                <div class="card-footer">
+                    <span>Open Portfolio</span>
+                    <span>&rarr;</span>
+                </div>
+            </a>
+
+            <!-- image.html -->
+            <a href="image.html" class="card">
+                <div>
+                    <div class="card-top">
+                        <div class="card-icon">🎬</div>
+                        <div class="card-title">
+                            <h3>HTML5 Multimedia Gallery</h3>
+                            <span class="card-tag">Media Elements</span>
+                        </div>
+                    </div>
+                    <p>Responsive embedding of audio elements, video players with native controls, and styled image figures.</p>
+                </div>
+                <div class="card-footer">
+                    <span>View Media Gallery</span>
+                    <span>&rarr;</span>
+                </div>
+            </a>
+
+            <!-- hyperlink.html -->
+            <a href="hyperlink.html" class="card">
+                <div>
+                    <div class="card-top">
+                        <div class="card-icon">🔗</div>
+                        <div class="card-title">
+                            <h3>Web Resource Directory</h3>
+                            <span class="card-tag">Hyperlinks</span>
+                        </div>
+                    </div>
+                    <p>Curated external navigation directory demonstrating anchor tags, target attributes, security rel values, and card layout.</p>
+                </div>
+                <div class="card-footer">
+                    <span>Browse Links</span>
+                    <span>&rarr;</span>
+                </div>
+            </a>
+
+            <!-- list.html -->
+            <a href="list.html" class="card">
+                <div>
+                    <div class="card-top">
+                        <div class="card-icon">📑</div>
+                        <div class="card-title">
+                            <h3>HTML Lists Guide</h3>
+                            <span class="card-tag">Lists Structure</span>
+                        </div>
+                    </div>
+                    <p>Detailed guide comparing ordered, unordered, custom bulleted, description, and multi-level nested lists.</p>
+                </div>
+                <div class="card-footer">
+                    <span>Inspect Lists</span>
+                    <span>&rarr;</span>
+                </div>
+            </a>
+
+            <!-- propose.html -->
+            <a href="propose.html" class="card">
+                <div>
+                    <div class="card-top">
+                        <div class="card-icon">💌</div>
+                        <div class="card-title">
+                            <h3>Interactive Card ("A Little Question")</h3>
+                            <span class="card-tag">Creative Design</span>
+                        </div>
+                    </div>
+                    <p>Interactive animated card with name customization, personalized greeting state, audio/visual mood, and clipboard sharing.</p>
+                </div>
+                <div class="card-footer">
+                    <span>Open Interactive Card</span>
+                    <span>&rarr;</span>
+                </div>
+            </a>
+
+            <!-- USERPAGE--form.html -->
+            <a href="USERPAGE--form.html" class="card">
+                <div>
+                    <div class="card-top">
+                        <div class="card-icon">📄</div>
+                        <div class="card-title">
+                            <h3>Static User Form</h3>
+                            <span class="card-tag">Pure HTML</span>
+                        </div>
+                    </div>
+                    <p>Static version of the student registration form for markup inspection and baseline form control evaluation.</p>
+                </div>
+                <div class="card-footer">
+                    <span>View Static Form</span>
+                    <span>&rarr;</span>
+                </div>
+            </a>
+        </div>
+
+        <h2 class="section-title">HTML Formatting Tags Quick Reference</h2>
+        <div class="preview-box">
+            <p style="color: #64748b; font-size: 14px; margin-bottom: 12px;">Standard inline text formatting tags demonstrated with live rendering:</p>
+            <div class="tags-demo-grid">
+                <div class="tag-demo-card">
+                    <strong>&lt;b&gt; Bold</strong>
+                    <b>Bold text styling</b>
+                </div>
+                <div class="tag-demo-card">
+                    <strong>&lt;strong&gt; Strong</strong>
+                    <strong>Important strong text</strong>
+                </div>
+                <div class="tag-demo-card">
+                    <strong>&lt;i&gt; Italic</strong>
+                    <i>Italic emphasis text</i>
+                </div>
+                <div class="tag-demo-card">
+                    <strong>&lt;u&gt; Underline</strong>
+                    <u>Underlined text snippet</u>
+                </div>
+                <div class="tag-demo-card">
+                    <strong>&lt;mark&gt; Highlight</strong>
+                    <mark>Highlighted mark text</mark>
+                </div>
+                <div class="tag-demo-card">
+                    <strong>&lt;small&gt; Fine Print</strong>
+                    <small>Small print text</small>
+                </div>
+                <div class="tag-demo-card">
+                    <strong>&lt;sub&gt; Subscript</strong>
+                    Water: H<sub>2</sub>O
+                </div>
+                <div class="tag-demo-card">
+                    <strong>&lt;sup&gt; Superscript</strong>
+                    Equation: 2<sup>3</sup> = 8
+                </div>
+                <div class="tag-demo-card">
+                    <strong>&lt;del&gt; Deleted</strong>
+                    <del>Strikethrough text</del>
+                </div>
+                <div class="tag-demo-card">
+                    <strong>&lt;ins&gt; Inserted</strong>
+                    <ins>Newly inserted text</ins>
+                </div>
+                <div class="tag-demo-card" style="grid-column: 1 / -1;">
+                    <strong>&lt;pre&gt; Preformatted</strong>
+                    <pre style="background:#e2e8f0; padding:6px; border-radius:4px; font-size:12px;">Roll: 2500080283 | Name: Ch. Prudhvi Raj | Course: Front-End Development</pre>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ch. Prudhvi Raj • Student ID: 2500080283 • KL University</p>
+        <p style="margin-top: 6px; font-size: 13px;">
+            Deployed on Vercel: <a href="https://html-seven-pink.vercel.app" target="_blank" rel="noopener">html-seven-pink.vercel.app</a>
+        </p>
+    </footer>
+
 </body>
 </html>

@@ -1,39 +1,183 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hyperlinks & Web Resources - KL University</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .back-nav {
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+        .back-nav a {
+            color: #8b0000;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #8b0000 0%, #550000 100%);
+            color: #ffffff;
+            padding: 24px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+        .header p {
+            color: #fde68a;
+            font-size: 14px;
+        }
+        .links-grid {
+            padding: 24px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+        .link-card {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #1e293b;
+            transition: all 0.2s ease;
+        }
+        .link-card:hover {
+            transform: translateY(-2px);
+            border-color: #8b0000;
+            box-shadow: 0 4px 12px rgba(139, 0, 0, 0.1);
+            background: #ffffff;
+        }
+        .link-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 14px;
+            background: #e2e8f0;
+            flex-shrink: 0;
+        }
+        .link-info h3 {
+            font-size: 15px;
+            margin-bottom: 2px;
+            color: #0f172a;
+        }
+        .link-info span {
+            font-size: 12px;
+            color: #64748b;
+        }
+    </style>
 </head>
-<body style="background-color: beige;font-family: Arial, sans-serif;padding: 20px;align-items: center;border: 2px solid black;font-size: 40px;">
+<body>
 
-    <a href="https://www.google.com" target="_blank">Google</a>
-    <br>
-    <hr>
+    <div class="back-nav">
+        <a href="index.html">&larr; Back to Lab Hub</a>
+    </div>
 
-    <a href="https://www.github.com" target="_blank">GitHub</a>
-    <br>
-    <hr>
+    <div class="container">
+        <div class="header">
+            <h1>Web Directory & External Hyperlinks</h1>
+            <p>Demonstrating HTML Anchor Tags, Target Attributes & Resource Linking</p>
+        </div>
 
-    <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-    <br>
-    <hr>
+        <div class="links-grid">
+            <a href="https://www.google.com" target="_blank" rel="noopener" class="link-card">
+                <div class="link-icon">🔍</div>
+                <div class="link-info">
+                    <h3>Google</h3>
+                    <span>Search Engine</span>
+                </div>
+            </a>
 
-    <a href="https://www.wikipedia.org" target="_blank">Wikipedia</a>
-    <br>
-    <hr>
+            <a href="https://www.github.com/2500080283" target="_blank" rel="noopener" class="link-card">
+                <div class="link-icon">💻</div>
+                <div class="link-info">
+                    <h3>GitHub</h3>
+                    <span>Developer Profile</span>
+                </div>
+            </a>
 
-    <a href="https://www.youtube.com" target="_blank">YouTube</a>
-    <br>
-    <hr>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="link-card">
+                <div class="link-icon">💼</div>
+                <div class="link-info">
+                    <h3>LinkedIn</h3>
+                    <span>Professional Network</span>
+                </div>
+            </a>
 
-    <a href="https://www.twitter.com" target="_blank">Twitter</a>
-    <br>
-    <hr>
+            <a href="https://www.wikipedia.org" target="_blank" rel="noopener" class="link-card">
+                <div class="link-icon">📚</div>
+                <div class="link-info">
+                    <h3>Wikipedia</h3>
+                    <span>Free Encyclopedia</span>
+                </div>
+            </a>
 
-    <a href="https://www.facebook.com" target="_blank">Facebook</a>
-    <br>
-    <hr>    
+            <a href="https://www.youtube.com" target="_blank" rel="noopener" class="link-card">
+                <div class="link-icon">🎥</div>
+                <div class="link-info">
+                    <h3>YouTube</h3>
+                    <span>Video Platform</span>
+                </div>
+            </a>
+
+            <a href="https://www.x.com" target="_blank" rel="noopener" class="link-card">
+                <div class="link-icon">🐦</div>
+                <div class="link-info">
+                    <h3>Twitter / X</h3>
+                    <span>Social Network</span>
+                </div>
+            </a>
+
+            <a href="https://www.facebook.com" target="_blank" rel="noopener" class="link-card">
+                <div class="link-icon">🌐</div>
+                <div class="link-info">
+                    <h3>Facebook</h3>
+                    <span>Social Media</span>
+                </div>
+            </a>
+
+            <a href="https://www.kluniversity.in" target="_blank" rel="noopener" class="link-card">
+                <div class="link-icon">🏛️</div>
+                <div class="link-info">
+                    <h3>KL University</h3>
+                    <span>Official Portal</span>
+                </div>
+            </a>
+        </div>
+    </div>
 
 </body>
 </html>

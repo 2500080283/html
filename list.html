@@ -1,57 +1,159 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HTML Lists Reference - KL University</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .back-nav {
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+        .back-nav a {
+            color: #8b0000;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #8b0000 0%, #550000 100%);
+            color: #ffffff;
+            padding: 24px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+        .header p {
+            color: #fde68a;
+            font-size: 14px;
+        }
+        .content {
+            padding: 24px;
+            display: grid;
+            gap: 24px;
+        }
+        .list-section {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .list-section h2 {
+            font-size: 18px;
+            color: #8b0000;
+            margin-bottom: 14px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 6px;
+        }
+        ol, ul {
+            padding-left: 24px;
+            line-height: 1.8;
+            color: #334155;
+        }
+        dl {
+            line-height: 1.8;
+        }
+        dt {
+            font-weight: 700;
+            color: #1e293b;
+            margin-top: 8px;
+        }
+        dd {
+            margin-left: 18px;
+            color: #64748b;
+        }
+    </style>
 </head>
-<body style="background-color: beige;font-family: Arial, sans-serif;padding: 20px;align-items: center;border: 2px solid black;">
-    <h1 style="text-align: center;font-size: 20px;">Lists in HTML</h1>
-    <h1>Ordered List</h1>
-    <ol type="A">
+<body>
 
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
+    <div class="back-nav">
+        <a href="index.html">&larr; Back to Lab Hub</a>
+    </div>
 
-    </ol>
-    <hr>
-    <h1>Unordered List</h1>
-    <ul type="square">
+    <div class="container">
+        <div class="header">
+            <h1>HTML List Structures</h1>
+            <p>Comprehensive Guide to Ordered, Unordered, Description & Nested Lists</p>
+        </div>
 
-        <li>Item A</li>
-        <li>Item B</li>
-        <li>Item C</li>
+        <div class="content">
+            <div class="list-section">
+                <h2>1. Ordered List (Alphabetical Type A)</h2>
+                <ol type="A">
+                    <li>HTML5 Semantic Markup & Structure</li>
+                    <li>CSS3 Flexbox & Grid Layouts</li>
+                    <li>Modern JavaScript (ES6+) Features</li>
+                </ol>
+            </div>
 
-    </ul>
-    <hr>
-    <h1>Description List</h1>
-    <dl>
+            <div class="list-section">
+                <h2>2. Unordered List (Square Bullets)</h2>
+                <ul type="square">
+                    <li>Front-End Development Tools (Vite, VS Code, Git)</li>
+                    <li>Responsive Web Design & Mobile-First Principles</li>
+                    <li>Web Content Accessibility Guidelines (WCAG)</li>
+                </ul>
+            </div>
 
-        <dt>Term 1</dt>
-        <dd>Description for Term 1</dd>
-        <dt>Term 2</dt>
-        <dd>Description for Term 2</dd>
-        <dt>Term 3</dt>
-        <dd>Description for Term 3</dd>
-        
-    </dl>
-    <hr>
-    <h1>Nested List</h1>
-    <ul>
-        <li>Item 1
-            <ul>
-                <li>Subitem 1.1</li>
-                <li>Subitem 1.2</li>
-            </ul>
-        </li>
-        <li>Item 2
-            <ul>
-                <li>Subitem 2.1</li>
-                <li>Subitem 2.2</li>
-            </ul>
-        </li>
-    </ul>
-    <hr>
+            <div class="list-section">
+                <h2>3. Description List (&lt;dl&gt;, &lt;dt&gt;, &lt;dd&gt;)</h2>
+                <dl>
+                    <dt>HTML5</dt>
+                    <dd>The standard markup language used to structure web pages and their content.</dd>
+                    <dt>CSS3</dt>
+                    <dd>The styling language used to control color, layout, fonts, and responsiveness.</dd>
+                    <dt>JavaScript</dt>
+                    <dd>The scripting language that powers client-side interactivity and dynamic logic.</dd>
+                </dl>
+            </div>
+
+            <div class="list-section">
+                <h2>4. Nested Hierarchical List</h2>
+                <ul>
+                    <li>Web Client Layer
+                        <ul>
+                            <li>HTML5 (Document Structure)</li>
+                            <li>CSS3 (Visual Presentation & Animation)</li>
+                            <li>JavaScript (User Interaction & API calls)</li>
+                        </ul>
+                    </li>
+                    <li>Build & Deployment
+                        <ul>
+                            <li>Git & GitHub Version Control</li>
+                            <li>Vercel / GitHub Pages Hosting</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

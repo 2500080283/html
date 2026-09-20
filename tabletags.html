@@ -1,59 +1,195 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student information</title>
+    <title>Student Information - KL University</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 24px;
+        }
+        .header {
+            background: linear-gradient(135deg, #8b0000 0%, #550000 100%);
+            color: #ffffff;
+            padding: 24px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .header p {
+            font-size: 14px;
+            color: #fde68a;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .table-responsive {
+            overflow-x: auto;
+            padding: 24px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            font-size: 15px;
+        }
+        thead th {
+            background-color: #f1f5f9;
+            color: #334155;
+            font-weight: 600;
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 2px solid #cbd5e1;
+        }
+        thead th.center, tbody td.center {
+            text-align: center;
+        }
+        tbody td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #475569;
+        }
+        tbody tr:hover {
+            background-color: #f8fafc;
+            transition: background-color 0.15s ease;
+        }
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 9999px;
+            background-color: #dcfce7;
+            color: #166534;
+        }
+        .badge-dept {
+            background-color: #eff6ff;
+            color: #1d4ed8;
+        }
+        .logo-section {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .logo-section img {
+            max-width: 280px;
+            height: auto;
+            border-radius: 8px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
+        }
+        .back-nav {
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 900px;
+        }
+        .back-nav a {
+            color: #8b0000;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .back-nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-<body style="background-color: beige;padding: 20px;">
-<h1 style="text-align: center;">Student Information</h1>
+<body>
 
-    <table border="1" style="width: 100%;height: 100%;font-family: italic;font-size: 20px;">
-        <thead>
-        <tbody>
-            <tr>
-                <th colspan="4" style="text-align: center;">Student Details</th>
-            </tr>
-        <tr>
-            <th style="text-align: center;">Student Name</th>
-            <th style="text-align: center;">ID</th>
-            <th style="text-align: center;">Percentage</th>
-            <th style="text-align: center;">Course</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td style="text-align: center;">Ch.Prudhvi Raj</td>
-            <td style="text-align: center;">80283</td>
-            <td style="text-align: center;">95%</td>
-            <td style="text-align: center;">Frontend Development</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">K.Bhanu</td>
-            <td style="text-align: center;">80262</td>
-            <td style="text-align: center;">90%</td>
-            <td style="text-align: center;">Frontend Development</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">S.Nikhil</td>
-            <td style="text-align: center;">80027</td>
-            <td style="text-align: center;">92%</td>
-            <td style="text-align: center;">Frontend Development</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">M.Chinnmye</td>
-            <td style="text-align: center;">32288</td>
-            <td style="text-align: center;">93%</td>
-            <td style="text-align: center;">Frontend Development</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">C.Bharath</td>
-            <td style="text-align: center;">40110</td>
-            <td style="text-align: center;">91%</td>
-            <td style="text-align: center;">Frontend Development</td>
-        </tr>
-    </table>    
+    <div class="back-nav">
+        <a href="index.html">&larr; Back to Lab Hub</a>
+    </div>
 
-    <img src="KL_University_logo.svg" alt="KL University" width="300" height="400" style="display: block;margin-left: auto;margin-right: auto;align-items: center;">
+    <div class="container">
+        <div class="header">
+            <h1>Department Student Directory</h1>
+            <p>Frontend Development Laboratory • Academic Session 2026</p>
+        </div>
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="center" style="width: 70px;">S.No</th>
+                        <th>Student Name</th>
+                        <th class="center">Student ID</th>
+                        <th class="center">Percentage</th>
+                        <th>Course</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="center">1</td>
+                        <td><strong>Ch. Prudhvi Raj</strong></td>
+                        <td class="center"><code>2500080283</code></td>
+                        <td class="center"><span class="badge">95%</span></td>
+                        <td><span class="badge badge-dept">Frontend Development</span></td>
+                    </tr>
+                    <tr>
+                        <td class="center">2</td>
+                        <td>K. Bhanu</td>
+                        <td class="center"><code>2500080262</code></td>
+                        <td class="center"><span class="badge">90%</span></td>
+                        <td><span class="badge badge-dept">Frontend Development</span></td>
+                    </tr>
+                    <tr>
+                        <td class="center">3</td>
+                        <td>S. Nikhil</td>
+                        <td class="center"><code>2500080027</code></td>
+                        <td class="center"><span class="badge">92%</span></td>
+                        <td><span class="badge badge-dept">Frontend Development</span></td>
+                    </tr>
+                    <tr>
+                        <td class="center">4</td>
+                        <td>M. Chinnmye</td>
+                        <td class="center"><code>2500032288</code></td>
+                        <td class="center"><span class="badge">93%</span></td>
+                        <td><span class="badge badge-dept">Frontend Development</span></td>
+                    </tr>
+                    <tr>
+                        <td class="center">5</td>
+                        <td>C. Bharath</td>
+                        <td class="center"><code>2500040110</code></td>
+                        <td class="center"><span class="badge">91%</span></td>
+                        <td><span class="badge badge-dept">Frontend Development</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="logo-section">
+        <img src="KL_University_logo.svg" alt="KL University Logo">
+    </div>
+
 </body>
 </html>

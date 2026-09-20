@@ -1,23 +1,148 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Example</title>
+    <title>HTML5 Multimedia Showcase - KL University</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .back-nav {
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+        .back-nav a {
+            color: #8b0000;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #8b0000 0%, #550000 100%);
+            color: #ffffff;
+            padding: 24px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+        .header p {
+            color: #fde68a;
+            font-size: 14px;
+        }
+        .media-grid {
+            padding: 24px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        .media-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .media-card h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #334155;
+        }
+        .media-card img {
+            width: 100%;
+            max-width: 320px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .media-card video {
+            width: 100%;
+            max-width: 320px;
+            height: 240px;
+            border-radius: 8px;
+            background: #000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .media-card audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+        figcaption {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #64748b;
+        }
+    </style>
 </head>
-<body style="background-color: beige;">
-    <img src="rose.jpg" alt="rose" width="300" height="400">
-    <br>
-    <hr>
-    <audio controls>
-        <source src="songs.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-    <br>
-    <hr>
-    <video width="320" height="240" controls>
-        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+<body>
+
+    <div class="back-nav">
+        <a href="index.html">&larr; Back to Lab Hub</a>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>HTML5 Multimedia Elements</h1>
+            <p>Images, Audio, and Video Embedding Showcase</p>
+        </div>
+
+        <div class="media-grid">
+            <!-- Image Card -->
+            <figure class="media-card">
+                <h3>Image Element (<code>&lt;img&gt;</code>)</h3>
+                <img src="rose.jpg" alt="Red Rose Bloom">
+                <figcaption>High resolution image rendered via HTML5 &lt;img&gt;</figcaption>
+            </figure>
+
+            <!-- Video Card -->
+            <div class="media-card">
+                <h3>Video Player (<code>&lt;video&gt;</code>)</h3>
+                <video controls preload="metadata">
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+                <figcaption>HTML5 Video Player with playback controls</figcaption>
+            </div>
+
+            <!-- Audio Card -->
+            <div class="media-card" style="grid-column: 1 / -1;">
+                <h3>Audio Player (<code>&lt;audio&gt;</code>)</h3>
+                <audio controls>
+                    <source src="songs.mp3" type="audio/mpeg">
+                    Your browser does not support HTML5 audio.
+                </audio>
+                <figcaption>HTML5 Audio Element with seek and volume controls</figcaption>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
